@@ -186,6 +186,11 @@ a:hover,
     background-position: bottom center;
 }
 
+.header h2 {
+    font-weight: 400;
+    color: #fff;
+}
+
 .flex-form {
     display: flex;
     flex-direction: row;
@@ -209,6 +214,12 @@ a:hover,
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    vertical-align: center;
+}
+
+.flex-form h2 {
+    background: none;
+    font-size: 1.3rem;
 }
 
 .flex-form input[type="text"] {
@@ -228,6 +239,7 @@ a:hover,
     cursor: pointer;
     transition: all 0.3s;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 @media all and (max-width: 600px) {
