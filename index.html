@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | LocalWeather</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+</head>
+
+<body>
+    <!-- Nav Start -->
+    <nav>
+        <ul class="menu">
+            <li class="logo"><a th:href="@{/}" href="index.html">LocalWeather</a></li>
+            <li class="item"><a class="link" th:href="@{/currentWeather}" href="current.html">Current Weather</a></li>
+            <li class="item"><a class="link" th:href="@{/hourlyForecast}" href="hourly.html">Hourly Forecast</a></li>
+            <li class="item"><a class="link" th:href="@{/forecastWeather}" href="forecast.html">3 Hours Forecast</a></li>
+            <li class="toggle"><span class="bars"></span></li>
+        </ul>
+    </nav>
+    <!-- Nav End -->
+    <!-- Header Start -->
+    <section class="header">
+        <h2>Enter Your Location</h2>
+        <form action="" class="flex-form">
+            <input type="text" placeholder="Get Your Local Weather">
+            <input type="submit" value="Search" />
+        </form>
+    </section>
+    <!-- Header End -->
+
+    <!-- Forms Start -->
+    <div class="sectionTwo">
+        <div class="formContainer odd">
+            <div class="context">
+                <h3>Want Current Weather Information?</h3>
+                <p>Enter City name to get Current Weather Information!</p>
+            </div>
+            <div class="formBox">
+                <form action="index.html" th:action="@{/currentWeather}" method="post">
+                    <div class="formInput">
+                        <input type="text" th:name="cityName" placeholder="Enter City Name here" required/>
+                        <input type="submit" value="Get Details" />
+                    </div>
+                    <span class="errorBox" th:text=${error}></span>
+                </form>
+            </div>
+        </div>
+        <div class="formContainer even">
+            <div class="context">
+                <h3>Want Hourly Forecast of Your City!</h3>
+                <p>Enter City name to get Hourly forecast for next 48 Hours.
+                    <br>Check mark the box for Today's 1 Hour time difference Forecast.</p>
+            </div>
+            <div class="formBox">
+                <form action="index.html" th:action="@{/hourlyForecast}" method="post">
+                    <div class="formInput">
+                        <input type="text" th:name="cityName" placeholder="Enter City Name here" required/>
+                        <input type="checkbox" id="hourlyOnlyToday" th:name="onlyToday">
+                        <label for="hourlyOnlyToday">Only Today's Forecast?</label>
+                        <input type="submit" value="Get Details" />
+                    </div>
+                    <span class="errorBox" th:text=${error}></span>
+                </form>
+            </div>
+        </div>
+        <div class="formContainer odd">
+            <div class="context">
+                <h3>Want Forecast For Next Few Days?</h3>
+                <p>Enter City name to get Forecast of next 5 Days with 3 Hours time Difference.
+            </div>
+            <div class="formBox">
+                <form action="index.html" th:action="@{/forecastWeather}" method="post">
+                    <div class="formInput">
+                        <input type="text" th:name="cityName" placeholder="Enter City Name here" required/>
+                        <input type="submit" value="Get Details" />
+                    </div>
+                    <span class="errorBox" th:text=${error}></span>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Forms End -->
+    <!-- About US Start-->
+    <div class=" about ">
+
+        <div class="context">
+            <h3>About Project</h3>
+            <p>This Project works on fetching data from open source APIs of an organization called "openweathermap".
+                <br> The result fetched is 90 to 100% accurate.
+                <br>Project's Backend is written in Spring boot for fetching data from API and extracting required data from it.
+                <br> Project's Front end is made with pure HTML and CSS to display data on webpage.
+            </p>
+        </div>
+    </div>
+    <!-- About US End-->
+    <footer>
+        All Rights Reserved
+    </footer>
+    <script type="text/javascript" src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+    <script src="http://maps.google.com/maps/api/js?key=ChIJkTdx9vzkDDkRx6LVvtz1Rhk"></script>
+</body>
+
+</html>
