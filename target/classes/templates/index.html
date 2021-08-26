@@ -58,7 +58,7 @@
             <div class="formBox">
                 <form action="index.html" th:action="@{/hourlyForecast}" method="post">
                     <div class="formInput">
-                        <input type="text" th:name="cityName" placeholder="Enter City Name here" />
+                        <input type="text" th:name="cityName" placeholder="Enter City Name here" required/>
                         <input type="checkbox" id="hourlyOnlyToday" th:name="onlyToday">
                         <label for="hourlyOnlyToday">Only Today's Forecast?</label>
                         <input type="submit" value="Get Details" />
@@ -75,7 +75,7 @@
             <div class="formBox">
                 <form action="index.html" th:action="@{/forecastWeather}" method="post">
                     <div class="formInput">
-                        <input type="text" th:name="cityName" placeholder="Enter City Name here" />
+                        <input type="text" th:name="cityName" placeholder="Enter City Name here" required/>
                         <input type="submit" value="Get Details" />
                     </div>
                     <span class="errorBox" th:text=${error}></span>
