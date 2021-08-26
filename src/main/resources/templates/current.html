@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Weather</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="logo"><a th:href="@{/}" href="index.html">LocalWeather</a></li>
+            <li class="item"><a class="active link" th:href="@{/currentWeather}" href="current.html">Current Weather</a></li>
+            <li class="item"><a class="link" th:href="@{/hourlyForecast}" href="hourly.html">Hourly Forecast</a></li>
+            <li class="item"><a class="link" th:href="@{/forecastWeather}" href="forecast.html">3 Hours Forecast</a></li>
+            <li class="toggle"><span class="bars"></span></li>
+        </ul>
+    </nav>
+
+    <!-- Test Start -->
+    <main class="main-container" th:if="${showWeather}" th:object="${currentWeather}">
+        <div class="location-and-date">
+            <h1 class="location-and-date__location" th:text="${currentWeather.weather.cityName} +', '+ ${currentWeather.weather.countryName}">London, UK</h1>
+            <div th:text="${currentWeather.weatherDateTime}">Sunday 4th August</div>
+        </div>
+
+        <div class="current-temperature">
+            <div class="current-temperature__icon-container">
+                <img class="current-temperature__icon" alt="image here" src="http://openweathermap.org/img/wn/11n.png" th:src="@{'/images/weatherIcons/'+${currentWeather.weather.weatherIcon}}" />
+            </div>
+            <div class="current-temperature__content-container">
+                <div class="current-temperature__value" th:text="${currentWeather.weatherDetails.celsiusTemp}">21&deg;</div>
+                <div class="current-temperature__summary " th:text="${currentWeather.weather.weatherMain}+' : '+${currentWeather.weather.weatherDesc} ">Mostly Sunny</div>
+            </div>
+        </div>
+
+        <div class="current-stats ">
+
+            <div>
+                <div class="current-stats__value " th:text="${currentWeather.weatherDetails.tempFeelsLike} ">23&deg;</div>
+                <div class="current-stats__label ">Feels Like</div>
+                <div class="current-stats__value " th:text="${currentWeather.weatherDetails.fehrenhiteTemp} ">23&deg;</div>
+                <div class="current-stats__label ">Fahrenhiet</div>
+            </div>
+            <div>
+                <div class="current-stats__value " th:text="${currentWeather.weatherDetails.pressure} ">23&deg;</div>
+                <div class="current-stats__label ">Pressure</div>
+                <div class="current-stats__value " th:text="${currentWeather.weatherDetails.humidity} ">14&deg;</div>
+                <div class="current-stats__label ">Humidity</div>
+            </div>
+            <div>
+                <div class="current-stats__value " th:text="${currentWeather.weatherDetails.latitude}">7mph</div>
+                <div class="current-stats__label ">Latitude</div>
+                <div class="current-stats__value " th:text="${currentWeather.weatherDetails.longitude} ">0%</div>
+                <div class="current-stats__label ">Longitude</div>
+            </div>
+        </div>
+    </main>
+    <div class="formContainer odd">
+        <div class="context">
+            <h3>Want Current Weather Information?</h3>
+            <p>Enter City name to get Current Weather Information!</p>
+        </div>
+        <div class="formBox">
+            <form action="index.html" th:action="@{/currentWeather}" method="post">
+                <div class="formInput">
+                    <input type="text" th:name="cityName" placeholder="Enter City Name here" />
+                    <span class="errorBox" th:text=${error}></span>
+                    <input type="submit" value="Get Details" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        All Rights Reserved
+    </footer>
+    <script type="text/javascript " src="../static/js/script.js " th:src="@{/js/script.js} "></script>
+</body>
+
+</html>

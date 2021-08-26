@@ -1,0 +1,627 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+    padding: 0%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+input {
+    text-align: center;
+}
+
+input:required {
+    border-color: #800000;
+    border-width: 3px;
+}
+
+input:required:invalid {
+    border-color: #c00000;
+}
+
+body {
+    position: relative;
+    font-family: "Poppins";
+    font-weight: 300;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background: #222;
+    padding: 5px 20px;
+    position: sticky;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover,
+.logo a:hover {
+    text-decoration: none;
+}
+
+.menu li {
+    font-size: 16px;
+    padding: 15px 5px;
+    white-space: nowrap;
+}
+
+.logo a,
+.toggle a {
+    font-size: 20px;
+}
+
+.link:hover,
+.link.active {
+    padding: 9px 20px;
+    background-color: rgba(255, 197, 0, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+
+/* Mobile menu */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle {
+    order: 1;
+}
+
+.item {
+    width: 100%;
+    text-align: center;
+    order: 3;
+    display: none;
+}
+
+.item.active {
+    display: block;
+}
+
+
+/* Navbar Toggle */
+
+.toggle {
+    cursor: pointer;
+}
+
+.bars {
+    background: #999;
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 18px;
+}
+
+.bars:before,
+.bars:after {
+    background: #999;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+
+.bars:before {
+    top: 5px;
+}
+
+.bars:after {
+    top: -5px;
+}
+
+
+/* Tablet menu */
+
+@media all and (min-width: 468px) {
+    .menu {
+        justify-content: center;
+    }
+    .logo {
+        flex: 1;
+    }
+    .toggle {
+        order: 2;
+    }
+    .active {
+        background-color: #222;
+    }
+}
+
+
+/* Desktop menu */
+
+@media all and (min-width: 768px) {
+    .item {
+        display: block;
+        width: auto;
+    }
+    .toggle {
+        display: none;
+    }
+    .logo {
+        order: 0;
+    }
+    .item {
+        order: 1;
+    }
+    .menu li {
+        padding: 15px 10px;
+    }
+    .menu li.button {
+        padding-right: 0;
+    }
+}
+
+
+/* Header Styling */
+
+.header {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/sunset.jpg");
+    background-size: cover;
+    background-position: bottom center;
+}
+
+.flex-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+    padding: 10px 20px;
+    width: 600px;
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.flex-form>* {
+    border: 0;
+    padding: 10px 0 0 10px;
+    background-color: #fff;
+    line-height: 30px;
+    font-size: 1rem;
+    border-radius: 0;
+    outline: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-form input[type="text"] {
+    flex-basis: 500px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px #eee;
+    padding: 10px 20px;
+}
+
+.flex-form input[type="submit"] {
+    background-color: rgb(255, 197, 0);
+    border: 1px solid rgb(255, 197, 0);
+    color: white;
+    font-weight: 300;
+    border-radius: 50px;
+    padding: 0px 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+@media all and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+    }
+    .flex-form {
+        flex-direction: column;
+        width: 100%;
+        /* margin: 0 20px; */
+    }
+    .flex-form input[type="text"] {
+        flex-basis: 80%;
+    }
+    .flex-form input[type="submit"] {
+        flex-basis: 20%;
+        text-align: center;
+    }
+    .flex-form>* {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Forms Styling */
+
+.sectionTwo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formContainer.odd {
+    width: 100%;
+    height: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e272e;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.formContainer.even {
+    width: 100%;
+    height: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.formContainer .context,
+.formContainer .formBox {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media all and (max-width: 800px) {
+    .formContainer.odd,
+    .formContainer.even {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.context h3 {
+    font-size: 28px;
+    color: rgb(255, 197, 0);
+    font-weight: 500;
+    box-shadow: rgb(250, 250, 250) 0px 10px 10px -10px;
+    margin-bottom: 10px;
+    padding-bottom: -2px;
+}
+
+.context p {
+    line-height: 2;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.formInput {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    margin: 10px 15px;
+}
+
+.formInput input[type="text"] {
+    border: 0;
+    outline: 0;
+    padding: 15px 35px;
+    border-radius: 10px;
+    height: 50px;
+    box-shadow: 0 0 10px #eee;
+}
+
+input[type="checkbox"]+label {
+    display: block;
+    margin: 0.2em;
+    cursor: pointer;
+    padding: 0.2em;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]+label:before {
+    content: "\2714";
+    border: 0.1em solid #fff;
+    background-color: #fff;
+    font-size: 13px;
+    border-radius: 0.2em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    padding-left: 0.3em;
+    padding-bottom: 0.3em;
+    margin-right: 0.4em;
+    margin-bottom: 0.2em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: 0.2s;
+}
+
+input[type="checkbox"]+label:active:before {
+    transform: scale(0);
+}
+
+input[type="checkbox"]:checked+label:before {
+    background-color: rgb(255, 197, 0);
+    border-color: #fff;
+    color: #fff;
+}
+
+.formInput input[type="submit"] {
+    background-image: linear-gradient( to right, rgb(194, 21, 0) 0%, rgb(255, 197, 0) 51%, #c21500 100%);
+    margin: 10px;
+    padding: 15px 45px;
+    width: 150px;
+    text-transform: capitalize;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: none;
+}
+
+.formInput input[type="submit"]:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.about {
+    padding: 30px;
+    height: 300px;
+    background-color: #222;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.about p {
+    color: #fff;
+}
+
+
+/* Current.html Start */
+
+.main-container {
+    width: 100%;
+    color: white;
+    height: 100%;
+    background: linear-gradient( 45deg, rgb(194, 21, 0) 0%, rgb(255, 197, 0) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 20px;
+}
+
+@media screen and (min-width: 920px) {
+    .main-container {
+        margin: 0px auto;
+        font-size: 1.1em;
+    }
+}
+
+
+/* location-and-date */
+
+.location-and-date {
+    width: 100%;
+    padding: 1rem;
+}
+
+.location-and-date__location {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+
+/* current-temperature */
+
+.current-temperature {
+    display: flex;
+    margin-top: 0.25em;
+    width: 100%;
+}
+
+.current-temperature__icon-container {
+    flex-grow: 1.25;
+    text-align: center;
+}
+
+.current-temperature__content-container {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.current-temperature__icon {
+    width: 8.5em;
+}
+
+.current-temperature__value {
+    font-size: 4.25em;
+    font-weight: 300;
+}
+
+.current-temperature__summary {
+    margin-top: -0.5em;
+    margin-left: -0.6em;
+    text-align: center;
+    font-size: 1.125em;
+    margin-bottom: .5rem;
+}
+
+
+/* current-stats */
+
+.current-stats {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 1em;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (min-width: 700px) {
+    .current-stats {
+        margin-bottom: 1em;
+        padding-bottom: 0;
+        border-top: none;
+        border-bottom: none;
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+    }
+}
+
+.current-stats__value {
+    margin-top: 1em;
+    font-size: 1.44em;
+}
+
+.current-stats__label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (min-width: 700px) {
+    .current-temperature,
+    .current-stats {
+        width: 50%;
+    }
+}
+
+
+/* Current.html End */
+
+
+/* next-5-days */
+
+.next-5-days {
+    width: 100%;
+    margin-top: 1em;
+}
+
+.next-5-days__heading {
+    padding: 10px;
+    font-size: 22px;
+    padding-left: 0;
+    font-weight: 300;
+}
+
+.next-5-days__container {
+    /* width: auto; */
+    margin: 8px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.next-5-days__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 0.3em;
+    padding: 0.8em;
+    width: 100%;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.20);
+    font-size: 1.19em;
+    text-align: center;
+}
+
+.next-5-days__label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.83em;
+}
+
+.next-5-days__date,
+.next-5-days__fehrenhiteTemp,
+.next-5-days__celciusTemp,
+.next-5-days__icon,
+.next-5-days__weatherDesc {
+    width: 33.33333%;
+    font-size: 0.95em;
+}
+
+.next-5-days__date,
+.next-5-days__fehrenhiteTemp,
+.next-5-days__celciusTemp {
+    margin-bottom: 0.6em;
+}
+
+.next-5-days__icon {
+    width: 50px;
+}
+
+@media screen and (min-width: 450px) {
+    /* .next-5-days__container {
+        width: 880px;
+    } */
+    .next-5-days__date,
+    .next-5-days__fehrenhiteTemp,
+    .next-5-days__celciusTemp,
+    .next-5-days__icon,
+    .next-5-days__weatherDesc {
+        width: 20%;
+        margin-bottom: initial;
+    }
+    .next-5-days__date {
+        order: -2;
+    }
+    .next-5-days__icon {
+        order: -1;
+    }
+}
+
+
+/* Hourly.html End*/
+
+footer {
+    margin-top: auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #485460;
+    color: #fff;
+}
